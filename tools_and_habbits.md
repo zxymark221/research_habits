@@ -29,7 +29,7 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
 ## Tools
 - __Git__
   
-  Always backup your code to the extend that you can afford to the loss of your unsaved work.
+  Always backup your code to the extend that you can afford to the loss of your unsaved work.:
 
   Git is a `version control` tool for managing your code repository.
 
@@ -64,6 +64,7 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
     - Install your own package: go to the folder where the code for this package is (where `setup.py` is) and then use `pip install -e .`
     - See all existing packages in the env: `conda list`
     - Exist the environment: `conda deactivate`
+    - Remove an environment: `conda remove -n xxx --all`
 
   - Share your Conda environment
 
@@ -72,13 +73,44 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
 - __VSCode__
   
   Configurations:
-  - How to set up Python interpreter? Connect with Conda environment.
-  - Remember to set up auto-save.
-  - See documentation of `settings` [here](https://code.visualstudio.com/docs/getstarted/settings)
+  - How to set up a Python interpreter? Connect with a Conda environment.
+  - The settings I used is defined below. To locate this file, search `Open User Settings` in the command palette. I like this setting because:
+    * It sets auto-save your code
+    * It sets the ruler for Python. (This answers the previous question on what is the maximum line length suggested by the Python guideline. Anyone knows why this weird number?)
+    * It specifies the formatter and makes the formatter work when you save your Python file (not the auto-save, but when you press command/control+s). 
+    ```
+    {
+      "files.autoSave": "afterDelay",
+      "[python]": {
+          "editor.defaultFormatter": "ms-python.autopep8",
+          "editor.rulers": [79],
+          "editor.formatOnSave": true
+      }
+    }
+    ```
+  - See more in the documentation of `settings` [here](https://code.visualstudio.com/docs/getstarted/settings).
 
   How to use it properly?
   - Single step debugging.
-  - Just my code? Set in launch.json.
+  - Just my code? Maybe not. When you are debugging your code, sometimes you'd like to see what happens inside a function that is defined by a package you installed. The default VSCode setting does not allow you look inside as the default value for `justMyCode` is true. You can set this to false in `launch.json` in the debugger.
+     ```
+     {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "justMyCode": false,
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
+    }
+     ```
 
 - __Pylint__
 
@@ -86,9 +118,9 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
 
 - __Formatter__
 
-  First, what's the differences between a linter and a formatter? [Answer](https://nono.ma/linter-vs-formatter)
+  First, what's the differences between a linter and a formatter? [Answer](https://nono.ma/linter-vs-formatter).
 
-  Use a formatter in VSCode [Link](https://code.visualstudio.com/docs/python/formatting)
+  Use a formatter in VSCode [Link](https://code.visualstudio.com/docs/python/formatting).
 
 
 - __Jupyter Notebook__
