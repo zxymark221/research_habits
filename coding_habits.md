@@ -1,7 +1,7 @@
 # Coding
 
 Coding is a highly useful skill throughout your research and future professional career. 
-Having a good coding habbit can help you improve your research efficiency, avoid unnecessary error and bugs, and make it easier to understand by your collaborators. 
+Having a good coding habit can help you improve your research efficiency, avoid unnecessary error and bugs, and make it easier to understand by your collaborators. 
 
 Below are some aspects that can make you good at coding.
 
@@ -27,6 +27,9 @@ See an example [here](https://github.com/openai/spinningup/blob/master/spinup/al
 Again, refer to the guidelines mentioned above and make sure you follow them in practice, until these become your muscle memory.
 
 ## Tools
+
+Know your tools well!
+
 - __Git__
   
   Always backup your code to the extend that you can afford to the loss of your unsaved work.:
@@ -66,11 +69,15 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
     - Exist the environment: `conda deactivate`
     - Remove an environment: `conda remove -n xxx --all`
 
+    What are the differences between `conda install numpy` and `pip install numpy`? See [Link](https://www.anaconda.com/blog/understanding-conda-and-pip) and 
+
   - Share your Conda environment
 
     If all your packages are installed using `pip`, you can use `pip freeze > requirements.txt` to export all libraries you installed in this environment. This txt file can be shared with your collaborator, and with that your collaborator can install all these libraries using `pip install -r requirements.txt`.
 
 - __VSCode__
+
+  You can choose another integrated development environment, but be sure 
   
   Configurations:
   - How to set up a Python interpreter? Connect with a Conda environment.
@@ -91,7 +98,7 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
   - See more in the documentation of `settings` [here](https://code.visualstudio.com/docs/getstarted/settings).
 
   How to use it properly?
-  - Single step debugging.
+  - Single step debugging. Rerun your code without changing anything and just _hoping_ the error goes away by itself does not work at all. Do single step debugging to locate the error and investigate what's happening under the hood.
   - Just my code? Maybe not. When you are debugging your code, sometimes you'd like to see what happens inside a function that is defined by a package you installed. The default VSCode setting does not allow you look inside as the default value for `justMyCode` is true. You can set this to false in `launch.json` in the debugger.
      ```
      {
@@ -127,8 +134,20 @@ Again, refer to the guidelines mentioned above and make sure you follow them in 
 
   The Jupyter notebook can be installed using `pip install notebook` and can be started using `jupyter notebook`. 
 
-  Consider when to use Jupyter notebook and when to run Python script. This is a personal choice, but general principles are:
+  Consider when to use Jupyter notebook and when to run Python script. This is a personal choice, but my general principles are:
 
-In summary, once you have all the tools integrated to you computer, you should be able to develop code for your research efficiently!
+  - Use `.py` script when formally running a job, when you only care about the final result. E.g., training an ML model.
+
+  - Use notebook when you need interactive feedback or do not have a clear idea what your final results are. E.g., play with the data, try a new code implementation quickly, visualizing results, etc..
+
+- __StackOverflow__
+
+  Take good advantage of StackOverflow, meaning _more than just copy and paste_.
+
+  - Don't ask your labmate immediately, search the error message first. Try to understand more, rather than just get a quick solution.
+  - If you cannot find an answer all over the Internet, try ask the question, but remember to provide a good MWE-_Minimum Working Example_. (Help others to understand, help yourself to get the exact answer.)
+  
+
+In summary, once you have all the tools integrated to you computer and build up all those good coding habits, you should be able to develop code for your research efficiently!
 
 
